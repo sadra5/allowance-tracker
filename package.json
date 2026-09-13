@@ -1,6 +1,16 @@
 {
+  "scripts": {
+    "node": "hardhat node",
+    "deploy": "hardhat run scripts/deploy.js --network localhost",
+    "frontend": "npm --prefix frontend run dev",
+    "dev": "concurrently -n \"node,frontend\" -c \"blue,magenta\" \"npm run node\" \"wait-on tcp:127.0.0.1:8545 && npm run deploy && npm run frontend\""
+  },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "concurrently": "^10.0.5",
     "hardhat": "^2.26.1"
+  },
+  "dependencies": {
+    "wait-on": "^9.1.0"
   }
 }
