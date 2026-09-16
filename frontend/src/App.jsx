@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <div>
-        <ConnectWalletButton account={account} setAccount={setAccount}/>
+        <ConnectWalletButton/>
         <button onClick={() => setCount((count) => count + 1)}>
           your current allowance is {allowance} ETH
         </button>
