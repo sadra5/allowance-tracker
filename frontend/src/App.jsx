@@ -1,7 +1,4 @@
 import { useState, useEffect } from 'react'
-import { ethers } from 'ethers'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import ConnectWalletButton from './components/connectWalletButton.jsx'
 import WithrawButton from './components/withrawButton.jsx'
 import { useAllowance } from './hooks/useAllowance.js'
