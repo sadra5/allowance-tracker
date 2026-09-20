@@ -1,22 +1,25 @@
-import { useReadContract } from "wagmi";
+import { useAccount ,useReadContract } from "wagmi";
 import { formatEther } from "viem";
 import { allowanceTrackerAddress, allowanceTrackerAbi } from "../contracts/allowanceTracker";
 
-function ContractBalance() {
+function Allowance() {
+    const {address, isConnected} = useAccount()
+
     const { data, isLoading, error } = useReadContract({
         address: allowanceTrackerAddress,
         abi: allowanceTrackerAbi,
-        functionName: "getBalance"
+        functionName: "getAllowance",
+        account: address,
     })
 
-    console.log(data)
+    console.log("Allowance data: ", data)
     console.log(error)
 
     return(
         <div>
-            Contract balance: {data? formatEther(data) : "0"} ETH
+            YOUR Allowance: {data ? formatEther(data) : "0"} ETH
         </div>
     )
 }
 
-export default ContractBalance
+export default Allowance
